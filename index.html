@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy MRI Care Guide</title>
+    
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Link to the Manifest file -->
+    <link rel="manifest" href="manifest.json">
+
+</head>
+<body>
+    <header>
+        <h1>A Guide for MRI Scans During Pregnancy</h1>
+        <p><strong>Your journey to a safe and comfortable MRI experience starts here.</strong></p>
+    </header>
+    
+    <nav>
+        <a href="javascript:void(0)" onclick="showHome()">Home</a>
+        <a href="javascript:void(0)" onclick="showSection('mriscans')">About MRI</a>
+        <a href="javascript:void(0)" onclick="showSection('maternal')">Maternal MRI</a>
+        <a href="javascript:void(0)" onclick="showSection('fetal')">Fetal MRI</a>
+        <a href="javascript:void(0)" onclick="showSection('contact')">Contact Information</a>
+        <a href="javascript:void(0)" onclick="showSection('faqs')">FAQs</a>
+        <div id="search-container" style="margin-left: 1rem; position: relative;">
+            <input type="text" id="search-input" placeholder="Search..." oninput="searchKeyword()" 
+                style="padding: 0.5rem; border: none; border-radius: 25px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); font-size: 1rem; width: 250px;">
+            <div id="search-results">
+                <!-- Search results dynamically populate here -->
+            </div>
+        </div>
+    </nav>
+
+    <div id="home" class="home-container">
+        <h2 id="welcome-message">Welcome!</h2>
+        <p class="intro-text">We understand that your first MRI scan can feel overwhelming, but we’re here to guide you every step of the way.</p>
+        <p class="intro-text">Please ensure you read through <strong>all</strong> the sections carefully. Once you've reviewed the information, complete the <strong>checklist below</strong> to confirm your preparation for the MRI scan.</p>
+        <!-- <img src="pink mri.jpeg" alt="MRI illustration" class="image-card"> -->
+        <p class="intro-text"><strong>Select the type of scan to learn more and put your mind at ease:</strong></p>
+        <div class="buttons">
+            <button onclick="showSection('maternal')">Maternal MRI</button>
+            <button onclick="showSection('fetal')">Fetal MRI</button>
+            <h2>Use this checklist to ensure you're fully prepared for your MRI scan:</h2>
+            <div class="content-card">
+                <h3>Preparation Checklist</h3>
+                <ul id="preparation-checklist">
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="item1">
+                            <span class="checkmark"></span>
+                            Wear loose, comfortable, metal-free clothing
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="item2">
+                            <span class="checkmark"></span>
+                            Inform your doctor about implants, pacemakers, or other medical devices
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="item3">
+                            <span class="checkmark"></span>
+                            Avoid eating or drinking for 4-6 hours before the scan if instructed
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="item4">
+                            <span class="checkmark"></span>
+                            Remove all jewelry, watches, and metal accessories
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="item5">
+                            <span class="checkmark"></span>
+                            Inform the radiologist if you are pregnant or breastfeeding
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="item6">
+                            <span class="checkmark"></span>
+                            Bring a valid ID and any relevant medical records
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="item7">
+                            <span class="checkmark"></span>
+                            Inform the radiologist about any claustrophobia or anxiety
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="item8">
+                            <span class="checkmark"></span>
+                            Discuss any medications you are currently taking with your doctor
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="item9">
+                            <span class="checkmark"></span>
+                            Ensure you follow instructions about drinking water before the scan
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="item10">
+                            <span class="checkmark"></span>
+                            Empty your bladder if instructed before the scan
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="item11">
+                            <span class="checkmark"></span>
+                            Inform your doctor if you have tattoos or permanent makeup
+                        </label>
+                    </li>
+                </ul>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button id="reset-button" style="padding: 10px 20px; font-size: 16px; margin-left: 10px; background-color: #ffa69e; color: white; border: none; border-radius: 8px; cursor: pointer;">Reset Checklist</button>
+                </div>
+                <div id="success-popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); text-align: center; z-index: 1000; width: 80%; max-width: 400px;">
+                    <h3 style="color: #ff686b; font-size: 1.5rem;">Checklist Completed!</h3>
+                    <p id="success-message" style="font-size: 1rem; color: #555; margin: 10px 0;"></p>
+                    <button onclick="closePopup()" style="margin-top: 10px; padding: 10px 20px; font-size: 1rem; color: white; background-color: #ffa69e; border: none; border-radius: 8px; cursor: pointer;">Close</button>
+                </div>
+            </div>  
+            <p class="disclaimer">This website is an informational resource and is not affiliated with the NHS. For official advice, please visit <a href="https://www.nhs.uk/">www.nhs.uk</a> or contact NHS services directly.</p>
+        </div>
+    </div>
+
+    <div id="mriscans" class="container">
+        <h2>About MRI Scans</h2>
+        <div class="content-card">
+            <h3>What is an MRI scan?</h3>
+            <p>An <strong>MRI scan</strong> (Magnetic Resonance Imaging) is a <strong>safe and non-invasive</strong> medical test that provides detailed images of the inside of your body. It uses strong magnets and radio waves to create these images, and importantly, it <strong>does not use radiation</strong>, making it a safe option for pregnant women when recommended by your doctor.</p>
+        </div>
+        <div class="content-card">
+            <h3>Why It's Done During Pregnancy</h3>
+            <ul>
+                <li><strong>MRI scan</strong> are usually recommended only when absolutely necessary, like to investigate certain conditions in the mother (e.g., issues with the brain, spine, or pelvis) or to get detailed images of the baby <strong>if an ultrasound isn't sufficient</strong>.</li>
+                <li>Your doctor will explain why it’s needed and how it helps in diagnosing or monitoring any concerns.</li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h3>Safety and Baby's Well-being</h3>
+            <ul>
+                <li><strong>MRI scan</strong> do not use ionizing radiation (like X-rays or CT scans), so there’s <strong>no radiation exposure to the baby</strong>.</li>
+                <li>MRIs are generally considered <strong>safe</strong> in pregnancy, particularly in the second and third trimesters. If performed in the first trimester, it’s only in cases where the benefits far outweigh potential risks.</li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h3>Noisy Environment</h3>
+            <p>The machine can be quite loud, which might be unsettling. The sounds are <strong>completely normal</strong> and part of how the machine works, but you’ll be provided with <strong>ear protection or music</strong> to make you more comfortable.</p>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="showSection('home')" style="padding: 10px 20px; font-size: 16px; margin-right: 10px; background-color: #ffa69e; color: white; border: none; border-radius: 8px; cursor: pointer;">← Previous</button>
+            <button onclick="showSection('maternal')" style="padding: 10px 20px; font-size: 16px; margin-left: 10px; background-color: #ffa69e; color: white; border: none; border-radius: 8px; cursor: pointer;">Next →</button>
+        </div>
+    </div>
+
+    <div id="maternal" class="container">
+        <h2>Maternal MRI Guide</h2>
+        <div class="content-card">
+            <h3>Introduction</h3>
+            <p><strong>Maternal MRI scans</strong> provide detailed images of your anatomy during pregnancy. These scans ensure your health and identify any conditions affecting your pregnancy.</p>
+        </div>
+        <div class="content-card">
+            <h3>Preparation</h3>
+            <p>To prepare for your scan:</p>
+            <ul>
+                <li>Wear loose, metal-free clothing.</li>
+                <li>Inform your doctor about implants or medical conditions.</li>
+                <li>Avoid eating a heavy meal before the scan.</li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h3>During the Scan</h3>
+            <p>You’ll lie comfortably on a table that slides into the MRI machine. The scan is <strong>painless</strong> and takes about <strong>30-60 minutes</strong>. Ear protection will be provided for the noise.</p>
+        </div>
+        <div class="content-card">
+            <h3>Safety Guidelines</h3>
+            <ul>
+                <li>Maternal MRIs avoid radiation, making them <strong>safe during pregnancy</strong>.</li>
+                <li>MRIs are typically avoided during the first trimester unless necessary.</li>
+                <li>Let your doctor know about <strong>implants, pacemakers, or allergies</strong>.</li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h3>Post-Scan</h3>
+            <p>After your scan, you can return to normal activities. Your results will be reviewed and shared with your doctor.</p>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="showSection('mriscans')" style="padding: 10px 20px; font-size: 16px; margin-right: 10px; background-color: #ffa69e; color: white; border: none; border-radius: 8px; cursor: pointer;">← Previous</button>
+            <button onclick="showSection('fetal')" style="padding: 10px 20px; font-size: 16px; margin-left: 10px; background-color: #ffa69e; color: white; border: none; border-radius: 8px; cursor: pointer;">Next →</button>
+        </div>
+    </div>
+
+    <div id="faqs" class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="content-card">
+            <h3>Are translation services available for non-English speakers?</h3>
+            <p>Yes, NHS hospitals offer <strong>translation and interpretation services</strong>. Please inform your hospital in advance to arrange these services.</p>
+        </div>
+        <div class="content-card">
+            <h3>What if I feel anxious about the scan?</h3>
+            <p>It’s <strong>normal</strong> to feel nervous. Most hospitals allow a companion for support during the scan. You can also request earplugs or music to ease discomfort.</p>
+        </div>
+        <div class="content-card">
+            <h3>Can I bring my children to the appointment?</h3>
+            <p>It’s best to arrange childcare, as children are generally <strong>not allowed</strong> in the scanning room for safety reasons.</p>
+        </div>
+        <div class="content-card">
+            <h3>Do I need to pay for the MRI scan as a visitor?</h3>
+            <p>Visitors may need to pay unless they qualify for free NHS treatment under specific agreements or conditions. Check with your hospital or refer to <a href='https://www.nhs.uk/nhs-services/visiting-or-moving-to-england/visitors-from-outside-the-european-economic-area-eea/'>NHS Overseas Visitor Guidance</a>.</p>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="showSection('contact')" style="padding: 10px 20px; font-size: 16px; background-color: #ffa69e; color: white; border: none; border-radius: 8px; cursor: pointer;">← Previous</button>
+            <button onclick="showSection('home')" style="padding: 10px 20px; font-size: 16px; margin-left: 10px; background-color: #ffa69e; color: white; border: none; border-radius: 8px; cursor: pointer;">Back to Home</button>
+        </div>
+    </div>
+
+    <div id="fetal" class="container">
+        <h2>Fetal MRI Guide</h2>
+        <div class="content-card">
+            <h3>Introduction</h3>
+            <p><strong>Fetal MRI scans</strong> provide detailed images of your baby to check for developmental concerns or issues that <strong>may not be visible on an ultrasound</strong>.</p>
+        </div>
+        <div class="content-card">
+            <h3>Preparation</h3>
+            <p>To prepare for your scan:</p>
+            <ul>
+                <li>Wear metal-free, comfortable clothing.</li>
+                <li>Provide your doctor with a <strong>detailed medical history</strong>.</li>
+                <li>Follow any specific instructions from your healthcare provider.</li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h3>During the Scan</h3>
+            <p>During the scan, you’ll lie on your back or side. The process is <strong>painless</strong> and takes about <strong>30-60 minutes</strong>. Noise is expected, but ear protection is provided.</p>
+        </div>
+        <div class="content-card">
+            <h3>Safety Guidelines</h3>
+            <ul>
+                <li>Fetal MRIs avoid ionizing radiation, ensuring safety for you and your baby.</li>
+                <li>They’re generally performed <strong>after the first trimester</strong>.</li>
+                <li>Inform your doctor if you have <strong>implants, pacemakers, or allergies</strong>.</li>
+            </ul>
+        </div>
+        <div class="content-card">
+            <h3>Post-Scan</h3>
+            <p>You can resume normal activities immediately after the scan. Results will be reviewed and shared with your doctor.</p>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="showSection('maternal')" style="padding: 10px 20px; font-size: 16px; margin-right: 10px; background-color: #ffa69e; color: white; border: none; border-radius: 8px; cursor: pointer;">← Previous</button>
+            <button onclick="showSection('contact')" style="padding: 10px 20px; font-size: 16px; margin-left: 10px; background-color: #ffa69e; color: white; border: none; border-radius: 8px; cursor: pointer;">Next →</button>
+        </div>
+    </div>
+    <div id="contact" class="container">
+        <h2>Contact Information</h2>
+        <div class="content-card">
+            <h3>General Support</h3>
+            <p>For general inquiries or support regarding your MRI scan, contact the NHS helpline:</p>
+            <p><strong>NHS Helpline:</strong> <a href="tel:111">111</a> (available 24/7)</p>
+            <p><strong>NHS Website:</strong> <a href="https://www.nhs.uk/">www.nhs.uk</a></p>
+        </div>
+        <div class="content-card">
+            <h3>Local Hospital Support</h3>
+            <p>Contact your local hospital for MRI-specific appointments or guidance. Check the NHS website for the nearest hospital or imaging centre.</p>
+        </div>
+        <div class="content-card">
+            <h3>Emergency Contact</h3>
+            <p>In case of a medical emergency, call:</p>
+            <p><strong>Emergency Number:</strong> <a href="tel:999">999</a></p>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="showSection('fetal')" style="padding: 10px 20px; font-size: 16px; margin-right: 10px; background-color: #ffa69e; color: white; border: none; border-radius: 8px; cursor: pointer;">← Previous</button>
+            <button onclick="showSection('faqs')" style="padding: 10px 20px; font-size: 16px; margin-left: 10px; background-color: #ffa69e; color: white; border: none; border-radius: 8px; cursor: pointer;">Next →</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 A Guide for MRI Scans During Pregnancy by King's College London. All Rights Reserved.</p>
+    </footer>
+
+    <div id="name-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 2rem; border-radius: 12px; text-align: center; width: 90%; max-width: 400px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+            <h2>Welcome to the Pregnancy MRI Care and Support!</h2>
+            <p style="font-size: 1rem; color: #555;">We'd like to personalize your experience. Please enter your name below. Your name will only be used for this session and will not be stored or shared.</p>
+            <input type="text" id="user-name" placeholder="Enter your name" style="width: 50%; padding: 0.8rem; margin-top: 1rem; border-radius: 8px; border: 1px solid #ccc; box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <button id="submit-name" style="margin-top: 1rem; padding: 0.8rem 1.5rem; background: #ffa69e; color: white; border: none; border-radius: 8px; cursor: pointer;">Submit</button>
+        </div>
+    </div>
+
+    <!-- Link to the JavaScript file -->
+    <script src="script.js"></script>
+
+    <button id="back-to-top" onclick="scrollToTop()" style="display:none; position:fixed; bottom:20px; right:20px; padding:10px 15px; font-size:16px; background-color:#ffa69e; color:white; border:none; border-radius:8px; cursor:pointer; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); z-index:1000;">↑</button>
+
+</body>
+</html>

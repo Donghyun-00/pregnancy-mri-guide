@@ -1,0 +1,21 @@
+{
+    "short_name": "MRI Guide",
+    "name": "Pregnancy MRI Care and Support Guide",
+    "description": "A comprehensive guide for MRI scans during pregnancy.",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#ffe6e1",
+    "theme_color": "#ffa69e",
+    "icons": [
+      {
+        "src": "MRI_small.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "MRI_big.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
