@@ -3,7 +3,8 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.8;
-    background: url('background image.jpeg') no-repeat center center fixed;
+    background: url('background image.jpeg') no-repeat center center;
+    background-attachment: fixed;
     background-size: cover;
     color: #333;
 }
@@ -155,6 +156,8 @@ footer {
     body {
         font-size: 14px; /* Adjust text size */
         line-height: 1.6; /* Adjust line spacing */
+        background-size: contain; /* Adjust the scaling */
+        background-attachment: scroll; /* Prevent fixed background issues */
     }
 
     header {
