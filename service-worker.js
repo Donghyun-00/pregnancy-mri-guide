@@ -7,7 +7,7 @@ const urlsToCache = [
   './MRI_small.png',
   './MRI_big.png',
   './background image.jpeg',
-  './mobile_background.jpeg'
+  './mobile_image.jpeg'
 ];
 
 // Install the service worker

@@ -153,42 +153,50 @@ footer {
 }
 @media only screen and (max-width: 768px) {
     body {
-        font-size: 14px; /* Adjust text size */
-        line-height: 1.6; /* Adjust line spacing */
-        background: url('mobile_background.jpeg?v=3') no-repeat center center;
+        font-size: 16px; /* Adjust text size */
+        line-height: 1; /* Adjust line spacing */
+        background: url('mobile_image.jpeg?v=3') no-repeat center center;
         background-size: cover; /* Adjust the scaling */
         background-attachment: scroll;
     }
 
     header {
-        font-size: 1.2rem;
-        padding: 0.8rem;
+        font-size: 0.5rem;
+        padding: 1rem 0.5rem;
     }
 
     header p {
-        font-size: 0.7rem;
+        font-size: 0.5rem;
     }
 
     nav {
-        flex-wrap: wrap; /* Allow links to wrap */
-        justify-content: center;
-        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap; /* Wrap links to fit smaller screens */
+        justify-content: space-evenly; /* Spread links evenly */
+        padding: 1.2rem 0; /* Add vertical padding for spacing */
+        background: #ffe6e1; /* Ensure visibility on smaller screens */
     }
 
     nav a {
-        font-size: 0.9rem;
-        padding: 0.8rem;
+        font-size: 0.7rem; /* Increase font size for better readability */
+        padding: 0.6rem 1rem; /* Add padding for a clickable area */
+        text-align: center; /* Center text within links */
     }
 
     #search-input {
-        width: 90%; /* Adjust search bar width */
-        font-size: 0.9rem;
+        width: 100%; /* Full width for the search bar */
+        font-size: 0.5rem; /* Larger font for input */
+        margin-top: 0.5rem; /* Add space above search bar */
+        padding: 0.6rem; /* Ensure sufficient touch-friendly padding */
+        border-radius: 8px; /* Smooth, rounded corners */
+        border: 1px solid #ddd; /* Subtle border for visibility */
     }
 
     #search-results {
-        width: 100%; /* Make dropdown full width */
-        max-height: 150px; /* Scrollable dropdown */
-        overflow-y: auto; /* Add vertical scroll */
+        width: 100%; /* Full width for dropdown */
+        max-height: 200px; /* Increased height for better usability */
+        overflow-y: auto; /* Scrollable results */
+        font-size: 0.9rem; /* Adjust font size for readability */
     }
 
     .container {
@@ -207,12 +215,32 @@ footer {
 
     .content-card {
         padding: 1rem;
-        font-size: 0.9rem;
+        font-size: 0.5rem;
     }
 
     footer {
-        font-size: 0.8rem;
+        font-size: 0.5rem;
         padding: 1rem;
+    }
+    /* Ensure checklist items are easy to read and interact with */
+    #preparation-checklist {
+        font-size: 0.5rem; /* Adjust font size for clarity */
+    }
+
+    #preparation-checklist li {
+        padding: 0.8rem 1rem; /* Add padding for touch-friendly interaction */
+        margin-bottom: 1rem; /* Add spacing between items */
+    }
+
+    #preparation-checklist input[type="checkbox"] {
+        width: 24px; /* Slightly larger checkboxes */
+        height: 24px;
+    }
+
+    /* Success popup styling for smaller screens */
+    #success-popup {
+        width: 90%; /* Full width for better display on small screens */
+        font-size: 0.5rem; /* Adjust font size for readability */
     }
 }
 .disclaimer {

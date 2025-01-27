@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateBackground() {
         if (window.innerWidth <= 768) {
-            document.body.style.background = "url('mobile_background.jpeg') no-repeat center center";
+            document.body.style.background = "url('mobile_image.jpeg?v=3') no-repeat center center";
             document.body.style.backgroundSize = "cover";
         } else {
-            document.body.style.background = "url('background image.jpeg') no-repeat center center fixed";
+            document.body.style.background = "url('background image.jpeg?v=3') no-repeat center center fixed";
             document.body.style.backgroundSize = "cover";
         }
     }
