@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.8;
-    background: url('background image.jpeg?v=2') no-repeat center center fixed;
+    background: url('background image.jpeg?v=3') no-repeat center center fixed;
     background-size: cover;
     color: #333;
 }
@@ -155,7 +155,7 @@ footer {
     body {
         font-size: 14px; /* Adjust text size */
         line-height: 1.6; /* Adjust line spacing */
-        background: url('mobile_background.jpeg?v=2') no-repeat center center;
+        background: url('mobile_background.jpeg?v=3') no-repeat center center;
         background-size: cover; /* Adjust the scaling */
         background-attachment: scroll;
     }
