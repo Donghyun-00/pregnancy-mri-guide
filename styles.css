@@ -74,8 +74,10 @@ nav a:hover {
     text-align: center;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.75);
+    background-size: cover;
     border-radius: 12px;
     margin: 2rem auto;
+    background-size: inherit;
 }
 .intro-text {
     font-size: 1.2rem;
@@ -152,6 +154,10 @@ footer {
     margin-top: auto; /* Push the footer to the bottom */
 }
 @media only screen and (max-width: 768px) {
+    #home {
+        background-image: none; /* Remove the actual background image */
+        background-color: white; /* Optional: Add a fallback solid color */
+    }
     body {
         font-size: 16px; /* Adjust text size */
         line-height: 1; /* Adjust line spacing */
