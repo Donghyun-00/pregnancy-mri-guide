@@ -32,6 +32,19 @@ document.addEventListener('DOMContentLoaded', function () {
         modal.style.display = 'none'; // Hide modal
     }
 
+    function updateBackground() {
+        if (window.innerWidth <= 768) {
+            document.body.style.background = "url('mobile_background.jpeg') no-repeat center center";
+            document.body.style.backgroundSize = "cover";
+        } else {
+            document.body.style.background = "url('background image.jpeg') no-repeat center center fixed";
+            document.body.style.backgroundSize = "cover";
+        }
+    }
+
+    // Run on page load and resize
+    updateBackground();
+    window.addEventListener('resize', updateBackground);
 
     // Handle checklist completion
     const checklistItems = document.querySelectorAll('#preparation-checklist input[type="checkbox"]');
